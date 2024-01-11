@@ -8,8 +8,23 @@
 import SwiftUI
 
 struct LoginView: View {
+    @State private var firstName : String = ""
+    @State private var lastName : String = ""
+    @State private var password : String = ""
+    @State private var email : String = ""
+
+    @EnvironmentObject var viewModel : AuthViewModel
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TextField("last name", text: $lastName)
+        TextField("first name", text: $firstName)
+        TextField("password", text: $password)
+        TextField("email", text: $email)
+        Button("create user") {
+            Task {
+                try await viewModel.createUser(withEmail: email, password: password, firstName: firstName, lastName: lastName)
+            }
+        }
     }
 }
 
