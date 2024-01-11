@@ -11,6 +11,8 @@
 		A1F182FC2B5010BA001CAC04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F182FB2B5010BA001CAC04 /* ContentView.swift */; };
 		A1F182FE2B5010BB001CAC04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1F182FD2B5010BB001CAC04 /* Assets.xcassets */; };
 		A1F183022B5010BB001CAC04 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1F183012B5010BB001CAC04 /* Preview Assets.xcassets */; };
+		A1F1830B2B501122001CAC04 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F1830A2B501122001CAC04 /* LoginView.swift */; };
+		A1F1830E2B501136001CAC04 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F1830D2B501136001CAC04 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		A1F182FD2B5010BB001CAC04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1F182FF2B5010BB001CAC04 /* Slow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Slow.entitlements; sourceTree = "<group>"; };
 		A1F183012B5010BB001CAC04 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A1F1830A2B501122001CAC04 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		A1F1830D2B501136001CAC04 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,8 @@
 		A1F182F82B5010B9001CAC04 /* Slow */ = {
 			isa = PBXGroup;
 			children = (
+				A1F1830C2B501128001CAC04 /* Model */,
+				A1F183082B501106001CAC04 /* Components */,
 				A1F182F92B5010BA001CAC04 /* SlowApp.swift */,
 				A1F182FB2B5010BA001CAC04 /* ContentView.swift */,
 				A1F182FD2B5010BB001CAC04 /* Assets.xcassets */,
@@ -67,6 +73,30 @@
 				A1F183012B5010BB001CAC04 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A1F183082B501106001CAC04 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A1F183092B50110F001CAC04 /* Login */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A1F183092B50110F001CAC04 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A1F1830A2B501122001CAC04 /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		A1F1830C2B501128001CAC04 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A1F1830D2B501136001CAC04 /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +169,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1F1830E2B501136001CAC04 /* User.swift in Sources */,
+				A1F1830B2B501122001CAC04 /* LoginView.swift in Sources */,
 				A1F182FC2B5010BA001CAC04 /* ContentView.swift in Sources */,
 				A1F182FA2B5010BA001CAC04 /* SlowApp.swift in Sources */,
 			);
