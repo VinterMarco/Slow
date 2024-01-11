@@ -83,6 +83,9 @@
 		A1A2BB2C2B501B7300AAFECA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A1A2BB2B2B501B7300AAFECA /* FirebaseFirestore */; };
 		A1A2BB2E2B501B7300AAFECA /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = A1A2BB2D2B501B7300AAFECA /* FirebaseFirestoreCombine-Community */; };
 		A1A2BB302B501B7300AAFECA /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A1A2BB2F2B501B7300AAFECA /* FirebaseFirestoreSwift */; };
+		A1A2BB332B50295800AAFECA /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2BB322B50295800AAFECA /* InputView.swift */; };
+		A1A2BB362B5029C900AAFECA /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2BB352B5029C900AAFECA /* RegistrationView.swift */; };
+		A1A2BB382B502FAB00AAFECA /* AuthBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2BB372B502FAB00AAFECA /* AuthBackground.swift */; };
 		A1F182FA2B5010BA001CAC04 /* SlowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F182F92B5010BA001CAC04 /* SlowApp.swift */; };
 		A1F182FC2B5010BA001CAC04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F182FB2B5010BA001CAC04 /* ContentView.swift */; };
 		A1F182FE2B5010BB001CAC04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1F182FD2B5010BB001CAC04 /* Assets.xcassets */; };
@@ -94,6 +97,9 @@
 /* Begin PBXFileReference section */
 		A1A2BA982B50151700AAFECA /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		A1A2BAA52B50161D00AAFECA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A1A2BB322B50295800AAFECA /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		A1A2BB352B5029C900AAFECA /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		A1A2BB372B502FAB00AAFECA /* AuthBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthBackground.swift; sourceTree = "<group>"; };
 		A1F182F62B5010B9001CAC04 /* Slow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F182F92B5010BA001CAC04 /* SlowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlowApp.swift; sourceTree = "<group>"; };
 		A1F182FB2B5010BA001CAC04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -197,6 +203,23 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		A1A2BB312B50294500AAFECA /* SharedComponents */ = {
+			isa = PBXGroup;
+			children = (
+				A1A2BB322B50295800AAFECA /* InputView.swift */,
+				A1A2BB372B502FAB00AAFECA /* AuthBackground.swift */,
+			);
+			path = SharedComponents;
+			sourceTree = "<group>";
+		};
+		A1A2BB342B5029AB00AAFECA /* RegistrationView */ = {
+			isa = PBXGroup;
+			children = (
+				A1A2BB352B5029C900AAFECA /* RegistrationView.swift */,
+			);
+			path = RegistrationView;
+			sourceTree = "<group>";
+		};
 		A1F182ED2B5010B9001CAC04 = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +239,7 @@
 		A1F182F82B5010B9001CAC04 /* Slow */ = {
 			isa = PBXGroup;
 			children = (
+				A1A2BB312B50294500AAFECA /* SharedComponents */,
 				A1A2BA972B5014FE00AAFECA /* ViewModel */,
 				A1F1830C2B501128001CAC04 /* Model */,
 				A1F183082B501106001CAC04 /* Components */,
@@ -240,6 +264,7 @@
 		A1F183082B501106001CAC04 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A1A2BB342B5029AB00AAFECA /* RegistrationView */,
 				A1F183092B50110F001CAC04 /* Login */,
 			);
 			path = Components;
@@ -412,8 +437,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1A2BA992B50151700AAFECA /* AuthViewModel.swift in Sources */,
+				A1A2BB382B502FAB00AAFECA /* AuthBackground.swift in Sources */,
 				A1F1830E2B501136001CAC04 /* User.swift in Sources */,
 				A1F1830B2B501122001CAC04 /* LoginView.swift in Sources */,
+				A1A2BB362B5029C900AAFECA /* RegistrationView.swift in Sources */,
+				A1A2BB332B50295800AAFECA /* InputView.swift in Sources */,
 				A1F182FC2B5010BA001CAC04 /* ContentView.swift in Sources */,
 				A1F182FA2B5010BA001CAC04 /* SlowApp.swift in Sources */,
 			);
