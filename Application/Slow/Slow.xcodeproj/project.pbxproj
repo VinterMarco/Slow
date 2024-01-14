@@ -86,6 +86,12 @@
 		A1A2BB332B50295800AAFECA /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2BB322B50295800AAFECA /* InputView.swift */; };
 		A1A2BB362B5029C900AAFECA /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2BB352B5029C900AAFECA /* RegistrationView.swift */; };
 		A1A2BB382B502FAB00AAFECA /* AuthBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2BB372B502FAB00AAFECA /* AuthBackground.swift */; };
+		A1A2BB3A2B53097800AAFECA /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2BB392B53097800AAFECA /* CustomTabBar.swift */; };
+		A1A2BB3E2B53FE0400AAFECA /* HabitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2BB3D2B53FE0400AAFECA /* HabitsView.swift */; };
+		A1A2BB412B53FE3D00AAFECA /* AcountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2BB402B53FE3D00AAFECA /* AcountView.swift */; };
+		A1A2BB452B54009000AAFECA /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2BB442B54009000AAFECA /* StatsView.swift */; };
+		A1A2BB482B5400B700AAFECA /* InspirationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2BB472B5400B700AAFECA /* InspirationView.swift */; };
+		A1A2BB4B2B54034D00AAFECA /* AddHabitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2BB4A2B54034D00AAFECA /* AddHabitsView.swift */; };
 		A1F182FA2B5010BA001CAC04 /* SlowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F182F92B5010BA001CAC04 /* SlowApp.swift */; };
 		A1F182FC2B5010BA001CAC04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F182FB2B5010BA001CAC04 /* ContentView.swift */; };
 		A1F182FE2B5010BB001CAC04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1F182FD2B5010BB001CAC04 /* Assets.xcassets */; };
@@ -100,6 +106,12 @@
 		A1A2BB322B50295800AAFECA /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		A1A2BB352B5029C900AAFECA /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		A1A2BB372B502FAB00AAFECA /* AuthBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthBackground.swift; sourceTree = "<group>"; };
+		A1A2BB392B53097800AAFECA /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		A1A2BB3D2B53FE0400AAFECA /* HabitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsView.swift; sourceTree = "<group>"; };
+		A1A2BB402B53FE3D00AAFECA /* AcountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcountView.swift; sourceTree = "<group>"; };
+		A1A2BB442B54009000AAFECA /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		A1A2BB472B5400B700AAFECA /* InspirationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspirationView.swift; sourceTree = "<group>"; };
+		A1A2BB4A2B54034D00AAFECA /* AddHabitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitsView.swift; sourceTree = "<group>"; };
 		A1F182F62B5010B9001CAC04 /* Slow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F182F92B5010BA001CAC04 /* SlowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlowApp.swift; sourceTree = "<group>"; };
 		A1F182FB2B5010BA001CAC04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -208,6 +220,7 @@
 			children = (
 				A1A2BB322B50295800AAFECA /* InputView.swift */,
 				A1A2BB372B502FAB00AAFECA /* AuthBackground.swift */,
+				A1A2BB392B53097800AAFECA /* CustomTabBar.swift */,
 			);
 			path = SharedComponents;
 			sourceTree = "<group>";
@@ -218,6 +231,55 @@
 				A1A2BB352B5029C900AAFECA /* RegistrationView.swift */,
 			);
 			path = RegistrationView;
+			sourceTree = "<group>";
+		};
+		A1A2BB3B2B53098B00AAFECA /* CoreApp */ = {
+			isa = PBXGroup;
+			children = (
+				A1F182FB2B5010BA001CAC04 /* ContentView.swift */,
+				A1F182F92B5010BA001CAC04 /* SlowApp.swift */,
+			);
+			path = CoreApp;
+			sourceTree = "<group>";
+		};
+		A1A2BB3C2B53FDE800AAFECA /* Habits */ = {
+			isa = PBXGroup;
+			children = (
+				A1A2BB3D2B53FE0400AAFECA /* HabitsView.swift */,
+			);
+			path = Habits;
+			sourceTree = "<group>";
+		};
+		A1A2BB3F2B53FE2100AAFECA /* Acount */ = {
+			isa = PBXGroup;
+			children = (
+				A1A2BB402B53FE3D00AAFECA /* AcountView.swift */,
+			);
+			path = Acount;
+			sourceTree = "<group>";
+		};
+		A1A2BB422B54007000AAFECA /* Stats */ = {
+			isa = PBXGroup;
+			children = (
+				A1A2BB442B54009000AAFECA /* StatsView.swift */,
+			);
+			path = Stats;
+			sourceTree = "<group>";
+		};
+		A1A2BB462B5400A200AAFECA /* Inspiration */ = {
+			isa = PBXGroup;
+			children = (
+				A1A2BB472B5400B700AAFECA /* InspirationView.swift */,
+			);
+			path = Inspiration;
+			sourceTree = "<group>";
+		};
+		A1A2BB492B54033C00AAFECA /* AddHabits */ = {
+			isa = PBXGroup;
+			children = (
+				A1A2BB4A2B54034D00AAFECA /* AddHabitsView.swift */,
+			);
+			path = AddHabits;
 			sourceTree = "<group>";
 		};
 		A1F182ED2B5010B9001CAC04 = {
@@ -239,12 +301,11 @@
 		A1F182F82B5010B9001CAC04 /* Slow */ = {
 			isa = PBXGroup;
 			children = (
+				A1A2BB3B2B53098B00AAFECA /* CoreApp */,
 				A1A2BB312B50294500AAFECA /* SharedComponents */,
 				A1A2BA972B5014FE00AAFECA /* ViewModel */,
 				A1F1830C2B501128001CAC04 /* Model */,
 				A1F183082B501106001CAC04 /* Components */,
-				A1F182F92B5010BA001CAC04 /* SlowApp.swift */,
-				A1F182FB2B5010BA001CAC04 /* ContentView.swift */,
 				A1F182FD2B5010BB001CAC04 /* Assets.xcassets */,
 				A1A2BAA52B50161D00AAFECA /* GoogleService-Info.plist */,
 				A1F182FF2B5010BB001CAC04 /* Slow.entitlements */,
@@ -264,6 +325,11 @@
 		A1F183082B501106001CAC04 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A1A2BB492B54033C00AAFECA /* AddHabits */,
+				A1A2BB462B5400A200AAFECA /* Inspiration */,
+				A1A2BB422B54007000AAFECA /* Stats */,
+				A1A2BB3F2B53FE2100AAFECA /* Acount */,
+				A1A2BB3C2B53FDE800AAFECA /* Habits */,
 				A1A2BB342B5029AB00AAFECA /* RegistrationView */,
 				A1F183092B50110F001CAC04 /* Login */,
 			);
@@ -437,10 +503,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1A2BA992B50151700AAFECA /* AuthViewModel.swift in Sources */,
+				A1A2BB412B53FE3D00AAFECA /* AcountView.swift in Sources */,
 				A1A2BB382B502FAB00AAFECA /* AuthBackground.swift in Sources */,
+				A1A2BB482B5400B700AAFECA /* InspirationView.swift in Sources */,
 				A1F1830E2B501136001CAC04 /* User.swift in Sources */,
+				A1A2BB3E2B53FE0400AAFECA /* HabitsView.swift in Sources */,
 				A1F1830B2B501122001CAC04 /* LoginView.swift in Sources */,
+				A1A2BB4B2B54034D00AAFECA /* AddHabitsView.swift in Sources */,
+				A1A2BB3A2B53097800AAFECA /* CustomTabBar.swift in Sources */,
 				A1A2BB362B5029C900AAFECA /* RegistrationView.swift in Sources */,
+				A1A2BB452B54009000AAFECA /* StatsView.swift in Sources */,
 				A1A2BB332B50295800AAFECA /* InputView.swift in Sources */,
 				A1F182FC2B5010BA001CAC04 /* ContentView.swift in Sources */,
 				A1F182FA2B5010BA001CAC04 /* SlowApp.swift in Sources */,
