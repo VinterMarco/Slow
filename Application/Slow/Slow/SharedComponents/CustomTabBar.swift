@@ -14,10 +14,11 @@ enum tabSelected {
 
 struct CustomTabBar: View {
     
+
     @Binding var selectdTab : String
     
-    var blueCustomColor : Color = Color(red: 77/255, green: 113/255, blue: 169/255, opacity: 0.11)
-    var blueCustomColorFull : Color = Color(red: 77/255, green: 113/255, blue: 169/255)
+    var blueCustomColor : Color = Color(red : 97/255,green : 1/255, blue : 238/255, opacity: 0.11)
+    var blueCustomColorFull : Color = Color(red : 97/255,green : 1/255, blue : 238/255)
     var accentCustomColor : Color = Color(red: 204/255, green: 103/255, blue: 51/255)
     
     
@@ -86,24 +87,13 @@ struct CustomTabBar: View {
                                 Image(systemName: "plus.circle.fill")
                                     .resizable()
                                     .scaledToFit()
-                                    .foregroundStyle(.blue)
+                                    .foregroundStyle(Color(red : 97/255,green : 1/255, blue : 238/255))
                                     .frame(width: 45, height: 45)
                                 
                                 
                             }
                             .frame(width: geo.size.width,height: geo.size.height)
                         }
-                        //                    VStack (alignment: .center , spacing: 4) {
-                        //                        Image(systemName: "plus.circle.fill")
-                        //                            .resizable()
-                        //                            .scaledToFit()
-                        //                            .foregroundStyle(.blue)
-                        //                            .frame(width: 45, height: 45)
-                        //                            
-                        //                        
-                        //                    }
-                        //                    .frame(width: geo.size.width,height: geo.size.height)
-                        
                     }
                     
                 }
@@ -155,7 +145,7 @@ struct CustomTabBar: View {
                     }
                 }
             }
-            .background(blueCustomColor)
+            .background(.white)
             .frame(width : 350, height: 60)
             .cornerRadius(35)
         }

@@ -16,7 +16,7 @@ struct LoginView: View {
     @EnvironmentObject var viewModel : AuthViewModel
     
     
-    var color  = LinearGradient(colors: [ Color(red: 77/255, green: 113/255, blue: 169/255)
+    var color  = LinearGradient(colors: [Color(red : 97/255,green : 1/255, blue : 238/255)
 , ], startPoint: .topLeading, endPoint: .bottomTrailing)
     
     var body: some View {

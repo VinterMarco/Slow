@@ -15,7 +15,7 @@ import Firebase
 struct SlowApp: App {
     
     @StateObject var viewModel = AuthViewModel()
-
+    @StateObject var habitsManager = HabitsManager()
     
     init() {
         FirebaseApp.configure()
@@ -24,6 +24,7 @@ struct SlowApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(viewModel)
+                .environmentObject(habitsManager)
         }
     }
 }
