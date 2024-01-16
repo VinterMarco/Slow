@@ -6,14 +6,16 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
 
 struct Habit : Identifiable, Codable {
+    @DocumentID var documenttName: String?
     var id = UUID()
     let habitName : String
     let description : String
     let date : Date
-    let isCompleted : Bool
+    var isCompleted : Bool
 }
 
 
