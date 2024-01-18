@@ -324,7 +324,7 @@ struct AddHabitsView: View {
                         VStack {
                             Button{
                                 if comment == "" {
-                                    comment = "A step closer to better you"
+                                    comment = "A step closer to a better you"
                                 }
                                 habitsManager.addHabit(Habit(habitName: taskName, description: comment, date: date, isCompleted: false))
                                 taskName = ""

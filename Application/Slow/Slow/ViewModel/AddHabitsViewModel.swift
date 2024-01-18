@@ -15,6 +15,7 @@ class HabitsManager : ObservableObject {
     
     @Published var habits : [Habit] = []
     @Published var habitsOfASpecificDay : [Habit] = []
+    @Published var habitsForCurrentMonth : [Habit] = []
     private var db = Firestore.firestore()
 
     
@@ -80,6 +81,30 @@ class HabitsManager : ObservableObject {
                 }
                 
                 self.habits = documents.compactMap { document in
+                    do {
+                        return try document.data(as: Habit.self)
+                    } catch {
+                        return nil
+                    }
+                }
+            }
+    }
+    
+    
+    func getHabitsForCurrentMonth(forDate date: Date) {
+        let calendar = Calendar.current
+        let startOfMonth = calendar.startOfDay(for: calendar.date(from: calendar.dateComponents([.year, .month], from: date))!)
+        let endOfMonth = calendar.date(byAdding: DateComponents(month: 1, day: -1), to: startOfMonth)!
+
+        db.collection("habits")
+            .whereField("date", isGreaterThanOrEqualTo: startOfMonth)
+            .whereField("date", isLessThanOrEqualTo: endOfMonth)
+            .addSnapshotListener { querySnapshot, error in
+                guard let documents = querySnapshot?.documents else {
+                    return
+                }
+
+                self.habitsForCurrentMonth = documents.compactMap { document in
                     do {
                         return try document.data(as: Habit.self)
                     } catch {

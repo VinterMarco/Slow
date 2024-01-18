@@ -41,6 +41,7 @@ struct HabitsView: View {
     
     //
     let daysOfWeek = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
+    let monthsOfTheYear = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     @State var selectedDate = 13
     @State var isChecked : Bool = false
     @State var numberOfTasks : Double = 3.0
@@ -63,10 +64,8 @@ struct HabitsView: View {
         return date
     }
     
-    //
     @EnvironmentObject var habitsManager : HabitsManager
     
-    // test
     
     func getCurrentDay () {
         let currentDate = Date()
@@ -104,6 +103,8 @@ struct HabitsView: View {
     var body: some View {
         ZStack {
             Color(red : 248/255, green : 244/255,blue :249/255).ignoresSafeArea()
+         
+                     
             VStack {
                 HStack {
                     HStack {
@@ -134,83 +135,77 @@ struct HabitsView: View {
                 
                 if selectedFruit == "Weekly" {
                     
-                    
-                    
-                    
                     ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 10) {
-                            ForEach(0..<daysOfWeek.count) { category in
-                                let dayreProcceses = daysOfWeek[category]
-                                let day = dayreProcceses
-                                let preProcceses = getDate(for: category)
-                                let date = formatDates(date: preProcceses)
-                                Button {
-                                    selectedDate = date
-                                    habitsManager.getHabitsForADay(forDay: preProcceses)
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                        numberOfTasks = Double(getNumberOfTasks(habits: habitsManager.habitsOfASpecificDay))
-                                        numberOfCompletedTasks = Double(getNumberOfCompletedTasks(habits: habitsManager.habitsOfASpecificDay))
-                                        completionRate = (numberOfCompletedTasks / numberOfTasks) * 100
+                        withAnimation {
+                            HStack(spacing: 10) {
+                                ForEach(0..<daysOfWeek.count) { category in
+                                    let dayreProcceses = daysOfWeek[category]
+                                    let day = dayreProcceses
+                                    let preProcceses = getDate(for: category)
+                                    let date = formatDates(date: preProcceses)
+                                    Button {
+                                        selectedDate = date
+                                        habitsManager.getHabitsForADay(forDay: preProcceses)
                                         
-                                        numberOfTasks = Double(getNumberOfTasks(habits: habitsManager.habitsOfASpecificDay))
+//                                        print("=== [ \(selectedDate) ] ===")
                                         
-                                        numberOfCompletedTasks = Double(getNumberOfCompletedTasks(habits: habitsManager.habitsOfASpecificDay))
-                                        completionRate = (numberOfCompletedTasks / numberOfTasks) * 100
-                                        
-                                        
-                                        
-                                        
-//                                        var stage1 = "Starting small enhances goal achievement"
-//                                        var stage2 = "You have a great start"
-//                                        var stage3 = "Great job until now"
-//                                        var stage4 = "Keep up the momentum"
-//                                        var stage5 = "Last mile"
-//                                        var stage6 = "Completed"
-                                        
-                                        if completionRate == 0.0 {
-                                            progessTitle = stage1
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                            withAnimation (.smooth(duration: 0.1)){
+                                                
+                                                numberOfTasks = Double(getNumberOfTasks(habits: habitsManager.habitsOfASpecificDay))
+                                                numberOfCompletedTasks = Double(getNumberOfCompletedTasks(habits: habitsManager.habitsOfASpecificDay))
+                                                completionRate = (numberOfCompletedTasks / numberOfTasks) * 100
+                                                numberOfTasks = Double(getNumberOfTasks(habits: habitsManager.habitsOfASpecificDay))
+                                                numberOfCompletedTasks = Double(getNumberOfCompletedTasks(habits: habitsManager.habitsOfASpecificDay))
+                                                completionRate = (numberOfCompletedTasks / numberOfTasks) * 100
+                                                
+                                                if completionRate == 0.0 {
+                                                    progessTitle = stage1
+                                                }
+                                                if completionRate > 0.0 && completionRate <= 25.0 {
+                                                    progessTitle = stage2
+                                                }
+                                                if completionRate > 25.0 && completionRate <= 50.0 {
+                                                    progessTitle = stage3
+                                                }
+                                                if completionRate > 50.0 && completionRate <= 73.0 {
+                                                    progessTitle = stage4
+                                                }
+                                                if completionRate > 73.0 && completionRate <= 90.0 {
+                                                    progessTitle = stage5
+                                                }
+                                                
+                                                if completionRate == 100.0 || completionRate > 100.0 {
+                                                    progessTitle = stage6
+                                                }
+                                            }
                                         }
-                                        if completionRate > 0.0 && completionRate <= 25.0 {
-                                            progessTitle = stage2
-                                        }
-                                        if completionRate > 25.0 && completionRate <= 50.0 {
-                                            progessTitle = stage3
-                                        }
-                                        if completionRate > 50.0 && completionRate <= 73.0 {
-                                            progessTitle = stage4
-                                        }
-                                        if completionRate > 73.0 && completionRate <= 90.0 {
-                                            progessTitle = stage5
-                                        }
                                         
-                                        if completionRate == 100.0 || completionRate > 100.0 {
-                                            progessTitle = stage6
-                                        }
-                                    }
-                                    
-                                } label: {
-                                    VStack {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(date == selectedDate ?  purpleColor : .clear, lineWidth : 0.6)
-                                            .fill(date == selectedDate ?  purpleColor.opacity(0.1) : .gray.opacity(0.2))
-                                            .frame(width: 50, height: 70)
-                                    }
-                                    .frame(minWidth: 40)
-                                    .overlay {
+                                    } label: {
                                         VStack {
-                                            Text("\(day)")
-                                                .font(.system(size: 10))
-                                                .fontWeight(.regular)
-                                            Text("\(date)")
-                                                .font(.system(size: 15))
-                                                .fontWeight(date == selectedDate ?  .bold : .regular)
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(date == selectedDate ?  purpleColor : .clear, lineWidth : 0.6)
+                                                .fill(date == selectedDate ?  purpleColor.opacity(0.1) : .gray.opacity(0.2))
+                                                .frame(width: 50, height: 70)
                                         }
-                                        .foregroundColor(date == selectedDate ? purpleColor : .gray)
+                                        .frame(minWidth: 40)
+                                        .overlay {
+                                            VStack {
+                                                Text("\(day)")
+                                                    .font(.system(size: 10))
+                                                    .fontWeight(.regular)
+                                                Text("\(date)")
+                                                    .font(.system(size: 15))
+                                                    .fontWeight(date == selectedDate ?  .bold : .regular)
+                                            }
+                                            .foregroundColor(date == selectedDate ? purpleColor : .gray)
+                                        }
+                                        
                                     }
                                     
                                 }
-                                
                             }
+                            .frame(height: 80)
                         }
                     }
                     if habitsManager.habitsOfASpecificDay.isEmpty {
@@ -266,33 +261,31 @@ struct HabitsView: View {
                                                     habitsManager.updateHabit(habit.documenttName ?? "", isCompleted: !habit.isCompleted)
                                                     habitsManager.getHabits()
                                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                                        numberOfTasks = Double(getNumberOfTasks(habits: habitsManager.habitsOfASpecificDay))
+                                                        withAnimation (.smooth(duration: 0.1)){
+                                                            
+                                                            numberOfTasks = Double(getNumberOfTasks(habits: habitsManager.habitsOfASpecificDay))
+                                                            numberOfCompletedTasks = Double(getNumberOfCompletedTasks(habits: habitsManager.habitsOfASpecificDay))
+                                                            completionRate = (numberOfCompletedTasks / numberOfTasks) * 100
                                                         
-                                                        numberOfCompletedTasks = Double(getNumberOfCompletedTasks(habits: habitsManager.habitsOfASpecificDay))
-                                                        completionRate = (numberOfCompletedTasks / numberOfTasks) * 100
-                                                        
-                                                        
-                                                        
-                                                       
-                                                        
-                                                        if completionRate == 0.0 {
-                                                            progessTitle = stage1
-                                                        }
-                                                        if completionRate > 0.0  && completionRate <= 25.0 {
-                                                            progessTitle = stage2
-                                                        }
-                                                        if completionRate > 25.0 && completionRate <= 50.0 {
-                                                            progessTitle = stage3
-                                                        }
-                                                        if completionRate > 50.0 && completionRate <= 73.0 {
-                                                            progessTitle = stage4
-                                                        }
-                                                        if completionRate > 73.0 && completionRate <= 90.0 {
-                                                            progessTitle = stage5
-                                                        }
-                                                        
-                                                        if completionRate == 100.0 || completionRate > 100.0 {
-                                                            progessTitle = stage6
+                                                            if completionRate == 0.0 {
+                                                                progessTitle = stage1
+                                                            }
+                                                            if completionRate > 0.0  && completionRate <= 25.0 {
+                                                                progessTitle = stage2
+                                                            }
+                                                            if completionRate > 25.0 && completionRate <= 50.0 {
+                                                                progessTitle = stage3
+                                                            }
+                                                            if completionRate > 50.0 && completionRate <= 73.0 {
+                                                                progessTitle = stage4
+                                                            }
+                                                            if completionRate > 73.0 && completionRate <= 90.0 {
+                                                                progessTitle = stage5
+                                                            }
+                                                            
+                                                            if completionRate == 100.0 || completionRate > 100.0 {
+                                                                progessTitle = stage6
+                                                            }
                                                         }
                                                     }
                                                 }) {
@@ -327,11 +320,20 @@ struct HabitsView: View {
                 }
                 
                 if selectedFruit == "Monthly" {
-                    Text("Monthly")
+                    VStack {
+                        HorizontalDateScrolls(monthOfTheYear: monthsOfTheYear, testFormated: [""] )
+//                        HabitsAndProgressView()
+                    }
+                    .onAppear{
+                        print("MONTHSS MONTHSSS")
+                    }
+                    
+
                 }
                 
                 if selectedFruit == "Yearly" {
-                    Text("Yearly")
+//                    HorizontalDateScrolls(monthOfTheYear: monthsOfTheYear, testFormated: [""] )
+//                    HabitsAndProgressView()
                 }
                 
               
@@ -341,31 +343,33 @@ struct HabitsView: View {
                 habitsManager.getHabitsForADay(forDay: Date())
                 print(type(of: habitsManager.habitsOfASpecificDay))
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    numberOfTasks = Double(getNumberOfTasks(habits: habitsManager.habitsOfASpecificDay))
-                    numberOfCompletedTasks = Double(getNumberOfCompletedTasks(habits: habitsManager.habitsOfASpecificDay))
-                    completionRate = (numberOfCompletedTasks / numberOfTasks) * 100
-                    
-                    if completionRate == 0.0 {
-                        progessTitle = stage1
+                    withAnimation (.smooth(duration: 0.1)){
+                        
+                        numberOfTasks = Double(getNumberOfTasks(habits: habitsManager.habitsOfASpecificDay))
+                        numberOfCompletedTasks = Double(getNumberOfCompletedTasks(habits: habitsManager.habitsOfASpecificDay))
+                        completionRate = (numberOfCompletedTasks / numberOfTasks) * 100
+                        
+                        if completionRate == 0.0 {
+                            progessTitle = stage1
+                        }
+                        if completionRate > 0.0  && completionRate <= 25.0 {
+                            progessTitle = stage2
+                        }
+                        if completionRate > 25.0 && completionRate <= 50.0 {
+                            progessTitle = stage3
+                        }
+                        if completionRate > 50.0 && completionRate <= 73.0 {
+                            progessTitle = stage4
+                        }
+                        if completionRate > 73.0 && completionRate <= 90.0 {
+                            progessTitle = stage5
+                        }
+                        
+                        if completionRate == 100.0 || completionRate > 100.0 {
+                            progessTitle = stage6
+                        }
+                        
                     }
-                    if completionRate > 0.0  && completionRate <= 25.0 {
-                        progessTitle = stage2
-                    }
-                    if completionRate > 25.0 && completionRate <= 50.0 {
-                        progessTitle = stage3
-                    }
-                    if completionRate > 50.0 && completionRate <= 73.0 {
-                        progessTitle = stage4
-                    }
-                    if completionRate > 73.0 && completionRate <= 90.0 {
-                        progessTitle = stage5
-                    }
-                    
-                    if completionRate == 100.0 || completionRate > 100.0 {
-                        progessTitle = stage6
-                    }
-
-                    
                     
                     
                 }

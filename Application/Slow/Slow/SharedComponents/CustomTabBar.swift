@@ -24,6 +24,8 @@ struct CustomTabBar: View {
     
     
     var body: some View {
+  
+
         NavigationStack {
             HStack {
                 // btn 1
@@ -145,10 +147,11 @@ struct CustomTabBar: View {
                     }
                 }
             }
+            }
             .background(.white)
             .frame(width : 350, height: 60)
             .cornerRadius(35)
-        }
+        
     }
 }
 
