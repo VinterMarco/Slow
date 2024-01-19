@@ -16,6 +16,7 @@ class HabitsManager : ObservableObject {
     @Published var habits : [Habit] = []
     @Published var habitsOfASpecificDay : [Habit] = []
     @Published var habitsForCurrentMonth : [Habit] = []
+    @Published var habitsForCurrentYear : [Habit] = []
     private var db = Firestore.firestore()
 
     
@@ -113,6 +114,35 @@ class HabitsManager : ObservableObject {
                 }
             }
     }
+    
+    
+    func getHabitsForCurrentYear(forDate date: Date) {
+        let calendar = Calendar.current
+        
+        // Calculate the start of the year
+        let startOfYear = calendar.startOfDay(for: calendar.date(from: calendar.dateComponents([.year], from: date))!)
+        
+        // Calculate the end of the year
+        let endOfYear = calendar.date(byAdding: DateComponents(year: 1, day: -1), to: startOfYear)!
+        
+        db.collection("habits")
+            .whereField("date", isGreaterThanOrEqualTo: startOfYear)
+            .whereField("date", isLessThanOrEqualTo: endOfYear)
+            .addSnapshotListener { querySnapshot, error in
+                guard let documents = querySnapshot?.documents else {
+                    return
+                }
+
+                self.habitsForCurrentYear = documents.compactMap { document in
+                    do {
+                        return try document.data(as: Habit.self)
+                    } catch {
+                        return nil
+                    }
+                }
+            }
+    }
+
     
     
 }

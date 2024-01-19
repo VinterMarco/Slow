@@ -321,8 +321,7 @@ struct HabitsView: View {
                 
                 if selectedFruit == "Monthly" {
                     VStack {
-                        HorizontalDateScrolls(monthOfTheYear: monthsOfTheYear, testFormated: [""] )
-//                        HabitsAndProgressView()
+                        MonthHabitsView( monthOfTheYear: monthsOfTheYear, testFormated: [""] )
                     }
                     .onAppear{
                         print("MONTHSS MONTHSSS")
@@ -332,8 +331,7 @@ struct HabitsView: View {
                 }
                 
                 if selectedFruit == "Yearly" {
-//                    HorizontalDateScrolls(monthOfTheYear: monthsOfTheYear, testFormated: [""] )
-//                    HabitsAndProgressView()
+                    YearHabitsView(monthOfTheYear: [""], testFormated: [""])
                 }
                 
               

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HorizontalDateScrolls: View {
+struct MonthHabitsView: View {
     
     
     // ======================================================================
@@ -141,62 +141,62 @@ struct HorizontalDateScrolls: View {
                             
                             
                             
-                            //                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                            //                                withAnimation (.smooth(duration: 0.1)){
-                            //
-                            //                                                                    numberOfTasks = Double(getNumberOfTasks(habits: habitsManager.habitsForCurrentMonth))
-                            //                                                                    numberOfCompletedTasks = Double(getNumberOfCompletedTasks(habits: habitsManager.habitsForCurrentMonth))
-                            //                                                                    completionRate = (numberOfCompletedTasks / numberOfTasks) * 100
-                            //                                                                    numberOfTasks = Double(getNumberOfTasks(habits: habitsManager.habitsForCurrentMonth))
-                            //                                                                    numberOfCompletedTasks = Double(getNumberOfCompletedTasks(habits: habitsManager.habitsForCurrentMonth))
-                            //                                                                    completionRate = (numberOfCompletedTasks / numberOfTasks) * 100
-                            //
-                            //
-                            //                                                                    if completionRate == 0.0 {
-                            //                                                                        progessTitle = stage1
-                            //                                                                    }
-                            //                                                                    if completionRate > 0.0 && completionRate <= 25.0 {
-                            //                                                                        progessTitle = stage2
-                            //                                                                    }
-                            //                                                                    if completionRate > 25.0 && completionRate <= 50.0 {
-                            //                                                                        progessTitle = stage3
-                            //                                                                    }
-                            //                                                                    if completionRate > 50.0 && completionRate <= 73.0 {
-                            //                                                                        progessTitle = stage4
-                            //                                                                    }
-                            //                                                                    if completionRate > 73.0 && completionRate <= 90.0 {
-                            //                                                                        progessTitle = stage5
-                            //                                                                    }
-                            //
-                            //                                                                    if completionRate == 100.0 || completionRate > 100.0 {
-                            //                                                                        progessTitle = stage6
-                            //                                                                    }
-                            //                                }
-                            //                            }
-                            
-                        } label: {
-                                VStack {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(category == selectedDate ?  purpleColor : .clear, lineWidth : 0.6)
-                                        .fill(category == selectedDate ?  purpleColor.opacity(0.1) : .gray.opacity(0.2))
-                                        .frame(width: 80, height: 50)
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                withAnimation (.smooth(duration: 0.1)){
                                     
-                                }
-                                .frame(minWidth: 40)
-                                
-                                .overlay {
-                                    VStack {
-                                        Text("\(category)")
-                                            .font(.system(size: 20))
-                                            .fontWeight(.regular)
-                                        
+                                    numberOfTasks = Double(getNumberOfTasks(habits: habitsManager.habitsForCurrentMonth))
+                                    numberOfCompletedTasks = Double(getNumberOfCompletedTasks(habits: habitsManager.habitsForCurrentMonth))
+                                    completionRate = (numberOfCompletedTasks / numberOfTasks) * 100
+                                    numberOfTasks = Double(getNumberOfTasks(habits: habitsManager.habitsForCurrentMonth))
+                                    numberOfCompletedTasks = Double(getNumberOfCompletedTasks(habits: habitsManager.habitsForCurrentMonth))
+                                    completionRate = (numberOfCompletedTasks / numberOfTasks) * 100
+                                    
+                                    
+                                    if completionRate == 0.0 {
+                                        progessTitle = stage1
+                                    }
+                                    if completionRate > 0.0 && completionRate <= 25.0 {
+                                        progessTitle = stage2
+                                    }
+                                    if completionRate > 25.0 && completionRate <= 50.0 {
+                                        progessTitle = stage3
+                                    }
+                                    if completionRate > 50.0 && completionRate <= 73.0 {
+                                        progessTitle = stage4
+                                    }
+                                    if completionRate > 73.0 && completionRate <= 90.0 {
+                                        progessTitle = stage5
                                     }
                                     
-                                    .foregroundColor(category == selectedDate ? purpleColor : .gray)
-                                    .foregroundColor( .gray)
-                                    .frame(width: 100, height: 80)
+                                    if completionRate == 100.0 || completionRate > 100.0 {
+                                        progessTitle = stage6
+                                    }
+                                }
+                            }
+                            
+                        } label: {
+                            VStack {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(category == selectedDate ?  purpleColor : .clear, lineWidth : 0.6)
+                                    .fill(category == selectedDate ?  purpleColor.opacity(0.1) : .gray.opacity(0.2))
+                                    .frame(width: 80, height: 50)
+                                
+                            }
+                            .frame(minWidth: 40)
+                            
+                            .overlay {
+                                VStack {
+                                    Text("\(category)")
+                                        .font(.system(size: 20))
+                                        .fontWeight(.regular)
                                     
                                 }
+                                
+                                .foregroundColor(category == selectedDate ? purpleColor : .gray)
+                                .foregroundColor( .gray)
+                                .frame(width: 100, height: 80)
+                                
+                            }
                             
                             
                         }
@@ -282,6 +282,7 @@ struct HorizontalDateScrolls: View {
                                                     }
                                                 }
                                             }) {
+                                                
                                                 Image(systemName: habit.isCompleted ? "checkmark.circle.fill" : "circle")
                                                     .resizable()
                                                     .foregroundColor(purpleColor)
@@ -326,7 +327,8 @@ struct HorizontalDateScrolls: View {
                     }
                     .padding()
                     .background(.white)
-                    .cornerRadius(10)                    }
+                    .cornerRadius(10)
+                }
             }
         }
         .onAppear {
@@ -372,7 +374,7 @@ struct HorizontalDateScrolls: View {
                     }
                 }
             }
-
+            
             
             
         }
